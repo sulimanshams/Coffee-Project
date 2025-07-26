@@ -1,14 +1,17 @@
 import './App.css';
+import BigCard from './MainCardComponent';
 import myImage from "D:/Coffe-Project-Excersise/coffee-project/src/assets/bg-cafe-lg.jpg"; 
 
 function App() {
   return (
-    <div className="app">
+    <>
+    <div className="app" style={{position:"relative"}} >
       <img src={myImage} alt="banner" className="top-banner" />
       
-      <h1 style={{ color: 'white', textAlign: 'center' }}>
-      </h1>
+      
     </div>
+    <BigCard />
+    </>
   );
 }
 
