@@ -1,4 +1,5 @@
 import React from "react";
+import SectionHeader from "./HeaderSection";
 
 
 const BigCard = () => {
@@ -13,9 +14,10 @@ const BigCard = () => {
               justifyContent: "center",
               alignItems: "center",
               position:"absolute",
-              marginTop:"-169px",
+              marginTop:"-188px",
               marginLeft:"120px"
         }}>
+                          <SectionHeader />
         </div>
     )
 }
