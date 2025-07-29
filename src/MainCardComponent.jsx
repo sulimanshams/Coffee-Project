@@ -1,9 +1,11 @@
 import React from "react";
 import SectionHeader from "./HeaderSection";
+import CoffeeCardList from "./CoffeeCardList";
 
 
 const BigCard = () => {
     return(
+        <>
         <div style={{
             width:"1435px",
             height:"1400px",
@@ -17,8 +19,13 @@ const BigCard = () => {
               marginTop:"-188px",
               marginLeft:"120px"
         }}>
-                          <SectionHeader />
+                          <SectionHeader />  
+                          
         </div>
+        <div>
+             <CoffeeCardList />
+        </div>
+        </>
     )
 }
 
