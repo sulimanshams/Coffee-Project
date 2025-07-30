@@ -23,14 +23,16 @@ const CoffeeCardList =  () => {
     if(loading) return <p style={{color:"white" , textAlign:"center"}}>Loading...</p>
     return (
         <div style={{
-            display:"flex",
-            gap:"20px",
+            display:"grid",
+            gridTemplateColumns:"repeat(3 , 1fr)",
+            gap:"1px",
             flexWrap:"wrap",
             justifyContent:"center",
-            backgroundColor:"#121212",
-            padding:"30px"
+            // backgroundColor:"#121212",
+            padding:"70px",
+            position:"relative"
         }}>
-            {coffeeData.map((coffee) => {
+            {coffeeData.slice(0 , 6).map((coffee) => {
                    return <Card key={coffee.id} {...coffee}/>
             })}
         </div>
