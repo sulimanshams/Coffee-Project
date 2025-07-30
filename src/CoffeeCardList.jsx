@@ -20,6 +20,21 @@ const CoffeeCardList =  () => {
         };
         fetchCoffee();
     }, []);
+    if(loading) return <p style={{color:"white" , textAlign:"center"}}>Loading...</p>
+    return (
+        <div style={{
+            display:"flex",
+            gap:"20px",
+            flexWrap:"wrap",
+            justifyContent:"center",
+            backgroundColor:"#121212",
+            padding:"30px"
+        }}>
+            {coffeeData.map((coffee) => {
+                   return <Card key={coffee.id} {...coffee}/>
+            })}
+        </div>
+    )
 }
 
 export default CoffeeCardList;
