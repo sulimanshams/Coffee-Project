@@ -6,8 +6,8 @@ const Card =({name , price , image , rating , votes , popular , available}) => {
             <div style={{
                 backgroundColor:"#1B1D1F",
                 borderRadius:"10px",
-                padding:"100px",
-                width:"200px",
+                padding:"12px",
+                width:"300px",
                 color:"#1B1D1F"
             }}>
                     <div style={{position:"relative"}}>
@@ -26,19 +26,23 @@ const Card =({name , price , image , rating , votes , popular , available}) => {
                                 Popular
                             </span>
                         )}
-                    </div>
-                    <div style={{marginTop:"10px"}}>
-                        <h style={{margin:"5px 0"}}>{name}</h>
-                        <span style={{
+                         <span style={{
                             backgroundColor:"#b9f5d0",
                             color:"#000",
-                            padding:"62px 6px",
+                            padding:"4px 8px",
                             borderRadius:"5px",
-                            fontSize:"13px" 
+                            fontSize:"13px", 
+                            position:"absolute",
+                            marginTop:"200px",
+                            marginLeft:"-50px"
 
                         }}>
                         ${!isNaN(Number(price)) ? Number(price).toFixed(2) : "0.00"}
                         </span>
+                    </div>
+                    <div style={{marginTop:"10px"}}>
+                        <h3 style={{margin:"5px 0" , color:"#fff"}}>{name}</h3>
+                       
                     </div>
                     <div style={{marginTop:"5px" , fontSize:"13px" ,color:available ? "#fff" :"red"}}>
                             {rating ? (
