@@ -2,13 +2,24 @@ import React from "react";
 
 
 const Card =({name , price , image , rating , votes , popular , available}) => {
+            
+    const extractNumber = (str) => {
+    const match = str.match(/[\d.]+/);
+      return match ? match[0] : null;
+    }
+            const numberPart= extractNumber(price);
+            const displayPrice= numberPart && !isNaN(Number(numberPart)) ? Number(numberPart).toFixed(2) : "0.00"
         return (
             <div style={{
                 backgroundColor:"#1B1D1F",
-                borderRadius:"10px",
+                borderRadius:"12px",
                 padding:"12px",
                 width:"300px",
-                color:"#1B1D1F"
+                color:"#1B1D1F", 
+                fontFamily:"sans-serif",
+                display:"flex",
+                flexDirection:"column",
+                gap:"1px"
             }}>
                     <div style={{position:"relative"}}>
                         <img src={image} alt={name} style={{width:"100%" ,  borderRadius:"10px"}}/>
@@ -37,7 +48,7 @@ const Card =({name , price , image , rating , votes , popular , available}) => {
                             marginLeft:"-50px"
 
                         }}>
-                        ${!isNaN(Number(price)) ? Number(price).toFixed(2) : "0.00"}
+                                    ${displayPrice}
                         </span>
                     </div>
                     <div style={{marginTop:"10px"}}>

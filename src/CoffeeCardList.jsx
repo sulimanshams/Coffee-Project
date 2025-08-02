@@ -25,12 +25,13 @@ const CoffeeCardList =  () => {
         <div style={{
             display:"grid",
             gridTemplateColumns:"repeat(3 , 1fr)",
-            gap:"1px",
+            gap:"10px",
             flexWrap:"wrap",
-            justifyContent:"center",
+            // justifyContent:"center",
             // backgroundColor:"#121212",
-            padding:"70px",
-            position:"relative"
+            padding:"350px",
+            position:"relative",
+            marginTop:"-220px"
         }}>
             {coffeeData.slice(0 , 6).map((coffee) => {
                    return <Card key={coffee.id} {...coffee}/>
