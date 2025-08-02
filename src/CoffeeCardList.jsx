@@ -31,8 +31,8 @@ const CoffeeCardList =  () => {
             // backgroundColor:"#121212",
             padding:"350px",
             position:"relative",
-            marginTop:"-220px"
-        }}>
+            marginTop:"-220px",
+                  }}>
             {coffeeData.slice(0 , 6).map((coffee) => {
                    return <Card key={coffee.id} {...coffee}/>
             })}

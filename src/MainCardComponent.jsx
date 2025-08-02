@@ -8,7 +8,7 @@ const BigCard = () => {
         <>
         <div style={{
             width:"1435px",
-            height:"1400px",
+            height:"1200px",
               backgroundColor: "#1B1D1F",
               margin:"100px auto",
               borderRadius:"12px",
