@@ -29,9 +29,12 @@ const CoffeeCardList =  () => {
             flexWrap:"wrap",
             // justifyContent:"center",
             // backgroundColor:"#121212",
-            padding:"350px",
+            padding:"0px",
             position:"relative",
-            marginTop:"-220px",
+            // marginTop:"-190px",
+                rowGap:"20px",
+                columnGap:"2px",
+                zIndex:0
                   }}>
             {coffeeData.slice(0 , 6).map((coffee) => {
                    return <Card key={coffee.id} {...coffee}/>
