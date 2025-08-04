@@ -12,7 +12,9 @@ function App() {
       
     </div>
     <BigCard />
+    <div style={{marginTop:"127px", marginLeft:"170px"}}>
     <CoffeeGrid />
+    </div>
     </>
   );
 }
