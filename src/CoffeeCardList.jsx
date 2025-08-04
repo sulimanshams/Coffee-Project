@@ -1,46 +1,28 @@
 import React, { useEffect, useState } from "react";
-import Card from "./CoffeeCard";
-import axios from "axios"
+import { Grid, Box } from "@mui/material";
+import axios from "axios";
+import CoffeeCard from "./CoffeeCard";
 
+const CoffeeGrid = () => {
+  const [coffeeList, setCoffeeList] = useState([]);
 
-const CoffeeCardList =  () => {
-    const [coffeeData , setCoffeeData] = useState([]);
-    const [loading , setLoading] = useState(true);
+  useEffect(() => {
+    axios.get("https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json")
+      .then((res) => setCoffeeList(res.data))
+      .catch((err) => console.error(err));
+  }, []);
 
-    useEffect(()=> {
-        const fetchCoffee = async() => {
-            try {
-                const response = await axios.get("https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/simple-coffee-listing-data.json");
-                setCoffeeData(response.data);
-            }catch(error){
-                console.error("The error is : " , error);
-            }finally {
-                setLoading(false);
-            }
-        };
-        fetchCoffee();
-    }, []);
-    if(loading) return <p style={{color:"white" , textAlign:"center"}}>Loading...</p>
-    return (
-        <div style={{
-            display:"grid",
-            gridTemplateColumns:"repeat(3 , 1fr)",
-            gap:"10px",
-            flexWrap:"wrap",
-            // justifyContent:"center",
-            // backgroundColor:"#121212",
-            padding:"0px",
-            position:"relative",
-            // marginTop:"-190px",
-                rowGap:"20px",
-                columnGap:"2px",
-                zIndex:0
-                  }}>
-            {coffeeData.slice(0 , 6).map((coffee) => {
-                   return <Card key={coffee.id} {...coffee}/>
-            })}
-        </div>
-    )
-}
+  return (
+    <Box p={4} bgcolor="#111315" minHeight="100vh">
+      <Grid container spacing={4} justifyContent="center">
+        {coffeeList.map((coffee, index) => (
+          <Grid item key={index} xs={12} sm={6} md={4}>
+            <CoffeeCard {...coffee} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
 
-export default CoffeeCardList;
+export default CoffeeGrid;

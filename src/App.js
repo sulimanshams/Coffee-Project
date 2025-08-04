@@ -1,6 +1,7 @@
 import './App.css';
 import BigCard from './MainCardComponent';
 import myImage from "D:/Coffe-Project-Excersise/coffee-project/src/assets/bg-cafe-lg.jpg"; 
+import CoffeeGrid from './CoffeeCardList';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       
     </div>
     <BigCard />
+    <CoffeeGrid />
     </>
   );
 }

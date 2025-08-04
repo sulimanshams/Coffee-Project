@@ -1,74 +1,38 @@
 import React from "react";
+import {Card , CardMedia , CardContent ,Typography , Chip , Box } from "@mui/material"
+import StarFilled from "D:/Coffe-Project-Excersise/coffee-project/src/assets/Star_fill.svg"
+import StarOutline from "D:/Coffe-Project-Excersise/coffee-project/src/assets/Star.svg"
+
+const CoffeeCard=({image , name , price , rating , votes , popular , available}) => {
+    return(
+        <Card sx={{backgroundColor:"#1B1D1F" , color:"#fff" , borderRadius:3 , width:300 , position:"relative"}}>
+            <CardMedia component="img" image={image} height="180"  alt={name}/>
+                <CardContent>
+                        <Box display="flex" justifyContent="space-between" alignItems="center" >
+                                <Typography variant="h6">{name}</Typography>
+                                <Chip label={`$${price}`} sx={{backgroundColor:"#BEE3B0", color:"#000"}} />
+                        </Box>
 
 
-const Card =({name , price , image , rating , votes , popular , available}) => {
-            
-    const extractNumber = (str) => {
-    const match = str.match(/[\d.]+/);
-      return match ? match[0] : null;
-    }
-            const numberPart= extractNumber(price);
-            const displayPrice= numberPart && !isNaN(Number(numberPart)) ? Number(numberPart).toFixed(2) : "0.00"
-        return (
-            <div style={{
-                backgroundColor:"#1B1D1F",
-                borderRadius:"12px",
-                padding:"12px",
-                width:"300px",
-                color:"#1B1D1F", 
-                fontFamily:"sans-serif",
-                display:"flex",
-                flexDirection:"column",
-                gap:"1px"
-            }}>
-                    <div style={{position:"relative"}}>
-                        <img src={image} alt={name} style={{width:"100%" ,  borderRadius:"10px"}}/>
-                        {popular && (
-                            <span style={{
-                                position:"absolute",
-                                top:"8px",
-                                left:"8px",
-                                backgroundColor:"#FDD446",
-                                color:"#000",
-                                fontSize:"12px",
-                                padding:"2px 6px",
-                                borderRadius:"6px"
-                            }}>
-                                Popular
-                            </span>
-                        )}
-                         <span style={{
-                            backgroundColor:"#b9f5d0",
-                            color:"#000",
-                            padding:"4px 8px",
-                            borderRadius:"5px",
-                            fontSize:"13px", 
-                            position:"absolute",
-                            marginTop:"200px",
-                            marginLeft:"-50px"
-
-                        }}>
-                                    ${displayPrice}
-                        </span>
-                    </div>
-                    <div style={{marginTop:"10px"}}>
-                        <h3 style={{margin:"5px 0" , color:"#fff"}}>{name}</h3>
-                       
-                    </div>
-                    <div style={{marginTop:"5px" , fontSize:"13px" ,color:available ? "#fff" :"red"}}>
-                            {rating ? (
-                                <>
-                                ⭐ {rating} <span style={{ color: "#aaa" }}>({votes} votes)</span>
-                                </>
-                            ) : (
-                                <>
-                                    <span style={{ color: "#666" }}>☆ No ratings</span>  
-                                </>
-                            )}
-                    </div>
-                      {!available && <div style={{ color: "red", fontSize: "13px", marginTop: "4px" }}>Sold out</div>}
-            </div>
-        )
+                        <Box display="flex" justifyContent="space-between" alignItems="center">
+                            <Box display="flex" alignItems="center" gap={0.5}>
+                                    <img
+                                      src={rating ? StarFilled : StarOutline}
+                                      alt="star"
+                                      style={{ width: 18, height: 18 }}
+                                    />
+                                     {rating ? (
+                                     <Typography>{rating} ({votes} votes)</Typography>
+                                       ) : (
+                                     <Typography color="#888">No ratings</Typography>
+                                       )}
+                            </Box>
+                            {popular && <Chip label="Popular" size="small" color="warning" />}
+                            {!available && <Chip label="Sold out" size="small" color="error" />}
+                        </Box>
+                </CardContent>
+        </Card>
+    )
 }
 
-export default Card;
+export default CoffeeCard;

@@ -1,6 +1,6 @@
 import React from "react";
 import SectionHeader from "./HeaderSection";
-import CoffeeCardList from "./CoffeeCardList";
+
 
 
 const BigCard = () => {
@@ -23,7 +23,7 @@ const BigCard = () => {
                           
         </div>
         <div>
-             <CoffeeCardList />
+                
         </div>
         </>
     )
