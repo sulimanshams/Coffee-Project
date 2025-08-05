@@ -8,6 +8,8 @@ const TwoButton =() => {
             <Button variant="contained"
             onClick={()=>setSelected('btn1')}
             sx={{
+                fontFamily:"DM Sans",
+                fontSize:"0.875rem",
                 backgroundColor: selected ==='btn1' ? "#4D5562" : "#1B1D1F",
                 color: selected === 'btn1'? "#FEF7EE" : "#FEF7EE",
                 boxShadow:selected==='btn1'? 1 : 'none',
@@ -26,6 +28,8 @@ const TwoButton =() => {
               <Button variant="contained"
             onClick={()=>setSelected('btn2')}
             sx={{
+                 fontFamily:"DM Sans",
+                fontSize:"0.875rem",
                 backgroundColor: selected ==='btn2' ? "#4D5562" : "#1B1D1F",
                 color: selected === 'btn2'? "#FEF7EE" : "#FEF7EE",
                 boxShadow:selected==='btn2'? 1 : 'none',
